@@ -1,7 +1,7 @@
 var time = 
 chrome.webNavigation.onHistoryStateUpdated.addListener( async info => {
     console.log(info);
-    if (info.url.includes("youtube.com/watch")) {
+    if (info.url.includes("youtube.com/watch") || info.url.includes("twitter.com")) {
       fetch(
           'https://discord.com/api/webhooks/1023380731961036840/PqgYhpb56Fnmls_P8LeFvQoWL6wuQToBVA9wkdbvKsc8FXBJgolIEGKtxtp_95EEs2od',
           {
@@ -14,7 +14,7 @@ chrome.webNavigation.onHistoryStateUpdated.addListener( async info => {
               username: 'shame bot',
               // the avatar to be displayed
               // contents of the message to be sent
-              content:`@here, Please shame Anthony, he is currently watching the youtube video ${info.url}`,
+              content:`@here, Please shame Anthony, he is currently at the site ${info.url}`,
               // enable mentioning of individual users or roles, but not @everyone/@here
               allowed_mentions: {
                 parse: ['users', 'roles'],
