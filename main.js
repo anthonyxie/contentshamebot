@@ -3,7 +3,7 @@ const { token } = require('./config.json');
 
 
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildPresences] });
 
 // When the client is ready, run this code (only once)
 client.once('ready', () => {
@@ -40,6 +40,8 @@ client.on('messageCreate', async message => {
     console.log(message);
     console.log(message.author);
 });
+
+
 
 // Login to Discord with your client's token
 client.login(token);
