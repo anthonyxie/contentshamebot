@@ -41,6 +41,24 @@ client.on('messageCreate', async message => {
     console.log(message.author);
 });
 
+client.on('presenceUpdate', async (oldMember, newMember) => {
+    const channel = client.channels.cache.get('1023380798222630932');
+    console.log(newMember.activities);
+    if (newMember.activities && newMember.user.id == '131892100529651712' && newMember.activities[0].details) {
+        if (newMember.activities[0].name === 'League of Legends' && newMember.activities[0].state == 'In Lobby' && newMember.activities[0].details.includes('Summoner\'s Rift')) {
+            channel.send(`@here, THIS FILTHY DEGENERATE IS TRYING TO PLAY LEAGUE OF LEGENDS PLEASE PUNISH HIM FOR HIS CRIMES`);
+        }
+        if (newMember.activities[0].name === 'League of Legends' && newMember.activities[0].state == 'In Game'  && newMember.activities[0].details.includes('Summoner\'s Rift')) {
+            channel.send(`@here, THIS FILTHY DEGENERATE IS LITERALLY PLAYING LEAGUE OF LEGENDS PLEASE PUNISH HIM FOR HIS CRIMES`);
+        }
+        if (newMember.activities[0].name === 'League of Legends' && newMember.activities[0].state == 'In Lobby' && newMember.activities[0].details.includes('Teamfight')) {
+            channel.send(`@here, THIS FILTHY DEGENERATE IS TRYING TO PLAY TFT PLEASE PUNISH HIM FOR HIS CRIMES`);
+        }
+        if (newMember.activities[0].name === 'League of Legends' && newMember.activities[0].state == 'In Game'  && newMember.activities[0].details.includes('Teamfight')) {
+            channel.send(`@here, THIS FILTHY DEGENERATE IS LITERALLY PLAYING TFT PLEASE PUNISH HIM FOR HIS CRIMES`);
+        }
+    }
+});
 
 
 // Login to Discord with your client's token
